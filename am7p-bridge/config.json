@@ -1,0 +1,34 @@
+{
+  "name": "AM7P UDP → MQTT Bridge",
+  "version": "1.0.0",
+  "slug": "am7p_bridge",
+  "description": "Receives AM7P UDP packets and publishes to MQTT with Home Assistant discovery + online/last_seen.",
+  "arch": ["amd64", "aarch64", "armv7", "armhf", "i386"],
+  "startup": "services",
+  "boot": "auto",
+  "init": false,
+  "hassio_api": false,
+  "homeassistant_api": false,
+  "host_network": true,
+  "map": ["config:rw"],
+  "options": {
+    "mqtt_host": "172.16.1.200",
+    "mqtt_user": "mqtt",
+    "mqtt_password": "mqtt2020",
+    "udp_port": 12414,
+    "online_timeout_s": 10,
+    "meta_publish_every_s": 2,
+    "addr_to_name": {
+      "172.16.1.206": "AM7P"
+    }
+  },
+  "schema": {
+    "mqtt_host": "str",
+    "mqtt_user": "str",
+    "mqtt_password": "password",
+    "udp_port": "int(1,65535)",
+    "online_timeout_s": "int(1,3600)",
+    "meta_publish_every_s": "int(1,3600)",
+    "addr_to_name": "dict"
+  }
+}
