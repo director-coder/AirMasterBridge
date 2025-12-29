@@ -18,9 +18,7 @@
     "udp_port": 12414,
     "online_timeout_s": 10,
     "meta_publish_every_s": 2,
-    "addr_to_name": {
-      "172.16.1.206": "AM7P"
-    }
+    "addr_to_name": "{\"172.16.1.1\":\"AM7P\"}"
   },
   "schema": {
     "mqtt_host": "str",
@@ -29,6 +27,6 @@
     "udp_port": "int(1,65535)",
     "online_timeout_s": "int(1,3600)",
     "meta_publish_every_s": "int(1,3600)",
-    "addr_to_name": "dict"
+    "addr_to_name": "str"
   }
 }

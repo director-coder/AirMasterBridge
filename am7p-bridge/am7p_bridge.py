@@ -162,7 +162,11 @@ def main() -> None:
 
     online_timeout_s = int(opts.get("online_timeout_s", 10))
     meta_publish_every_s = int(opts.get("meta_publish_every_s", 2))
-    addr_to_name = dict(opts.get("addr_to_name", {}))
+    addr_to_name_raw = opts.get("addr_to_name", "{}")
+    try:
+        addr_to_name = json.loads(addr_to_name_raw) if isinstance(addr_to_name_raw, str) else {}
+    except Exception:
+        addr_to_name = {}
 
     print(f"[am7p] mqtt_host={mqtt_host} udp_port={udp_port} online_timeout_s={online_timeout_s} meta_publish_every_s={meta_publish_every_s}")
     print(f"[am7p] addr_to_name={addr_to_name}")
